@@ -57,7 +57,11 @@ shapes = [
     ]
     ]
 
-# TODO: invert shapes[0] and shapes[3]
+#  Zs from Ss, Js from Ls
+shapes.append([row[::-1] for row in shapes[0]])
+shapes.append([row[::-1] for row in shapes[3]])
+
+
 field = [[6, 6, 6, 6, 6, 6, 6, 6, 6],
          [6, 6, 6, 0, 0, 0, 6, 6, 6],
          [6, 6, 0, 0, 0, 0, 0, 6, 6],
@@ -111,37 +115,39 @@ tilings = []
 inverted_shapes = []
 
 
-asset_page = canvas.Canvas('test_out.pdf', bottomup=0,
-                           pagesize=A4)
+tile_document = canvas.Canvas('tiles.pdf', bottomup=0,
+                              pagesize=A4)
 page_width, page_height = A4
-asset_page.setLineWidth(0.1 * cm)
+tile_document.setLineWidth(0.1 * cm)
 table_offset = (page_width / cm - 16) / 2
 
 for shape in shapes:
     tiling, inverted_tiling = generate_colors(shape)
     inverted_shape = [row[::-1] for row in shape]
-    draw_block(asset_page, shape, tiling,
+    draw_block(tile_document, shape, tiling,
                white_assets,
                start_x=table_offset,
                start_y=3,
                tile_size=2)
-    asset_page.showPage()
-    asset_page.setLineWidth(0.1 * cm)
-    draw_block(asset_page, inverted_shape, inverted_tiling,
+    tile_document.showPage()
+    tile_document.setLineWidth(0.1 * cm)
+    draw_block(tile_document, inverted_shape, inverted_tiling,
                bg_assets,
                start_x=table_offset,
                start_y=3,
                tile_size=2)
-    asset_page.showPage()
+    tile_document.showPage()
+tile_document.save()
 
-# TODO: move fields to a separate document
-draw_block(asset_page, field, field, white_assets,
+field_document = canvas.Canvas('fields.pdf', bottomup=0,
+                               pagesize=A4)
+draw_block(field_document, field, field, white_assets,
            start_x=(page_width / cm - 2 * len(field[0])) / 2,
            start_y=(page_height / cm - 2 * len(field)) / 2,
            tile_size=2)
-asset_page.showPage()
-draw_block(asset_page, field2, field2, white_assets,
+field_document.showPage()
+draw_block(field_document, field2, field2, white_assets,
            start_x=(page_width / cm - 2 * len(field2[0])) / 2,
            start_y=(page_height / cm - 2 * len(field2)) / 2,
            tile_size=2)
-asset_page.save()
+field_document.save()
