@@ -8,6 +8,7 @@ def draw_block(canvas: canvas,
                tiling: list,
                assets: dict,
                start_x=2, start_y=2, tile_size=1):
+    print(shape, tiling)
     for row_index, row in enumerate(tiling):
         for col_index, value in enumerate(row):
             renderPDF.draw(assets[value],

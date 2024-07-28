@@ -5,6 +5,14 @@ from draw_block import draw_block
 from svglib.svglib import svg2rlg
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
+from reportlab.lib.pagesizes import A4
+
+
+################################################################################
+#
+# Constants and config
+#
+################################################################################
 
 shapes = [
     [  # Zs, also to be used for generating Ss by reverting rows
@@ -49,43 +57,35 @@ shapes = [
     ]
     ]
 
-field = [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-         [6, 6, 6, 0, 0, 0, 0, 0, 0, 6, 6, 6],
-         [6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6],
-         [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
-         [6, 0, 0, 0, 6, 6, 6, 6, 0, 0, 0, 6],
-         [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
-         [6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6],
-         [6, 6, 6, 0, 0, 0, 0, 0, 0, 6, 6, 6],
-         [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-         ]
-
-field2 = [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-          [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6],
-          [6, 6, 6, 0, 0, 0, 0, 0, 0, 6, 6, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6],
-          [6, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 6],
-          [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]]
-tilings = []
-inverted_shapes = []
+# TODO: invert shapes[0] and shapes[3]
+field = [[6, 6, 6, 6, 6, 6, 6, 6, 6],
+         [6, 6, 6, 0, 0, 0, 6, 6, 6],
+         [6, 6, 0, 0, 0, 0, 0, 6, 6],
+         [6, 0, 0, 0, 0, 0, 0, 0, 6],
+         [6, 0, 0, 0, 6, 0, 0, 0, 6],
+         [6, 0, 0, 0, 6, 0, 0, 0, 6],
+         [6, 0, 0, 0, 6, 0, 0, 0, 6],
+         [6, 0, 0, 0, 6, 0, 0, 0, 6],
+         [6, 0, 0, 0, 0, 0, 0, 0, 6],
+         [6, 6, 0, 0, 0, 0, 0, 6, 6],
+         [6, 6, 6, 0, 0, 0, 6, 6, 6],
+         [6, 6, 6, 6, 6, 6, 6, 6, 6]]
 
 
-page_width = 21 #  A4 width in cm
-asset_page = canvas.Canvas('test_out.pdf', bottomup=0)
-asset_page.setLineWidth(0.1 * cm)
-
-starts = [(1, 1), (10, 1), (1, 10), (10, 10)]
-inverted_starts = [(12, 1), (3, 1), (12, 10), (3, 10)]
-
-for shape in shapes:
-    tilings.append(generate_colors(shape))
-    inverted_shapes.append([row[::-1] for row in shape])
+field2 = [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+          [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
+          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
+          [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
+          [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
+          [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
+          [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+          [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
+          [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]]
 
 white_assets = {0: svg2rlg('Field_bg.svg'),
                 1: svg2rlg('1_white.svg'),
@@ -101,27 +101,47 @@ bg_assets = {0: svg2rlg('Field_bg.svg'),
              4: svg2rlg('4_bg.svg'),
              5: svg2rlg('5_bg.svg')}
 
-for shape_index, shape in enumerate(shapes):
-    draw_block(asset_page, shape, tilings[shape_index][0],
+################################################################################
+#
+#
+#
+################################################################################
+
+tilings = []
+inverted_shapes = []
+
+
+asset_page = canvas.Canvas('test_out.pdf', bottomup=0,
+                           pagesize=A4)
+page_width, page_height = A4
+asset_page.setLineWidth(0.1 * cm)
+table_offset = (page_width / cm - 16) / 2
+
+for shape in shapes:
+    tiling, inverted_tiling = generate_colors(shape)
+    inverted_shape = [row[::-1] for row in shape]
+    draw_block(asset_page, shape, tiling,
                white_assets,
-               start_x=starts[shape_index][0],
-               start_y=starts[shape_index][1])
-asset_page.showPage()
-asset_page.setLineWidth(0.1 * cm)
-
-for shape_index, shape in enumerate(inverted_shapes):
-    draw_block(asset_page, shape, tilings[shape_index][1],
+               start_x=table_offset,
+               start_y=3,
+               tile_size=2)
+    asset_page.showPage()
+    asset_page.setLineWidth(0.1 * cm)
+    draw_block(asset_page, inverted_shape, inverted_tiling,
                bg_assets,
-               start_x=inverted_starts[shape_index][0],
-               start_y=inverted_starts[shape_index][1])
-asset_page.showPage()
-asset_page.setLineWidth(0.1 * cm)
-draw_block(asset_page, field, field, white_assets,
-           start_x=5,
-           start_y=3)
-draw_block(asset_page, field2, field2, white_assets,
-           start_x=5,
-           start_y=14)
-asset_page.save()
+               start_x=table_offset,
+               start_y=3,
+               tile_size=2)
+    asset_page.showPage()
 
-quit()
+# TODO: move fields to a separate document
+draw_block(asset_page, field, field, white_assets,
+           start_x=(page_width / cm - 2 * len(field[0])) / 2,
+           start_y=(page_height / cm - 2 * len(field)) / 2,
+           tile_size=2)
+asset_page.showPage()
+draw_block(asset_page, field2, field2, white_assets,
+           start_x=(page_width / cm - 2 * len(field2[0])) / 2,
+           start_y=(page_height / cm - 2 * len(field2)) / 2,
+           tile_size=2)
+asset_page.save()
