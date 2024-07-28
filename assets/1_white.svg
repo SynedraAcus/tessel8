@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="10mm"
-   height="10mm"
-   viewBox="0 0 10 10"
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 20 20"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="2.4844833"
-     inkscape:cy="11.807689"
+     inkscape:zoom="3.9999998"
+     inkscape:cx="46.0315"
+     inkscape:cy="-2.8114633"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -78,7 +78,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,54 +86,54 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-287)">
+     transform="translate(0,-277)">
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815"
-       cx="0.00083967519"
-       cy="286.9942"
-       r="1.3193731" />
+       cx="0.15257502"
+       cy="276.83398"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3"
-       cx="-0.0041341428"
-       cy="296.99588"
-       r="1.3193731" />
+       cx="0.14262724"
+       cy="296.83734"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3-6"
-       cx="10.021093"
-       cy="296.96692"
-       r="1.3193731" />
+       cx="20.193083"
+       cy="296.77942"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3-7"
-       cx="9.9962893"
-       cy="287.01199"
-       r="1.3193731" />
+       cx="20.143475"
+       cy="276.86957"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-5"
-       cx="5.004622"
-       cy="291.99963"
-       r="1.3193731" />
+       cx="10.160139"
+       cy="286.84485"
+       r="2.6387463" />
     <circle
        id="circle897"
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
-       cy="291.99963"
-       cx="5.004622"
-       r="2.2493196" />
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
+       cy="286.84485"
+       cx="10.160139"
+       r="4.4986391" />
     <circle
-       r="3.17307"
-       cx="5.004622"
-       cy="291.99963"
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       r="6.3461399"
+       cx="10.160139"
+       cy="286.84485"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="circle899" />
     <circle
        id="circle901"
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
-       cy="291.99963"
-       cx="5.004622"
-       r="4.1903644" />
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
+       cy="286.84485"
+       cx="10.160139"
+       r="8.3807287" />
   </g>
 </svg>

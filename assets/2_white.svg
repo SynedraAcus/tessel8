@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="10mm"
-   height="10mm"
-   viewBox="0 0 10 10"
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 20 20"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.999999"
-     inkscape:cx="-20.947574"
-     inkscape:cy="9.5404645"
+     inkscape:zoom="4"
+     inkscape:cx="90.320899"
+     inkscape:cy="-10.030629"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -78,7 +78,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,33 +86,34 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-287)">
+     transform="translate(0,-277)">
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815"
-       cx="0.00083967519"
-       cy="286.9942"
-       r="1.3193731" />
+       cx="-0.37571695"
+       cy="276.80716"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3"
-       cx="-0.0041341428"
-       cy="296.99588"
-       r="1.3193731" />
+       cx="-0.38566473"
+       cy="296.81052"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3-6"
-       cx="10.021093"
-       cy="296.96692"
-       r="1.3193731" />
+       cx="19.664789"
+       cy="296.75259"
+       r="2.6387463" />
     <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-opacity:1"
        id="path815-3-7"
-       cx="9.9962893"
-       cy="287.01199"
-       r="1.3193731" />
+       cx="19.615181"
+       cy="276.84274"
+       r="2.6387463" />
     <g
-       id="g1547">
+       id="g1547"
+       transform="matrix(2,0,0,2,-0.37739637,-297.18124)">
       <rect
          ry="0.36380208"
          rx="0.36380208"
