@@ -2,6 +2,7 @@
 from tiling import generate_colors, validate_colors
 from draw_block import draw_block
 
+from argparse import ArgumentParser
 from svglib.svglib import svg2rlg
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
@@ -13,6 +14,13 @@ from reportlab.lib.pagesizes import A4
 # Constants and config
 #
 ################################################################################
+
+parser = ArgumentParser('Generate game files')
+parser.add_argument('--notiles', action='store_true',
+                    help='Do not regenerate tiles.pdf')
+parser.add_argument('--nofield', action='store_true',
+                    help='Do not regenerate fields.pdf')
+args = parser.parse_args()
 
 shapes = [
     [  # Zs, also to be used for generating Ss by reverting rows
@@ -62,34 +70,64 @@ shapes.append([row[::-1] for row in shapes[0]])
 shapes.append([row[::-1] for row in shapes[3]])
 
 
-field = [[6, 6, 6, 6, 6, 6, 6, 6, 6],
-         [6, 6, 6, 0, 0, 0, 6, 6, 6],
-         [6, 6, 0, 0, 0, 0, 0, 6, 6],
-         [6, 0, 0, 0, 0, 0, 0, 0, 6],
-         [6, 0, 0, 0, 6, 0, 0, 0, 6],
-         [6, 0, 0, 0, 6, 0, 0, 0, 6],
-         [6, 0, 0, 0, 6, 0, 0, 0, 6],
-         [6, 0, 0, 0, 6, 0, 0, 0, 6],
-         [6, 0, 0, 0, 0, 0, 0, 0, 6],
-         [6, 6, 0, 0, 0, 0, 0, 6, 6],
-         [6, 6, 6, 0, 0, 0, 6, 6, 6],
-         [6, 6, 6, 6, 6, 6, 6, 6, 6]]
 
+fields = [[[6, 6, 6, 6, 6, 6, 6, 6, 6],
+           [6, 6, 6, 0, 0, 0, 6, 6, 6],
+           [6, 6, 0, 0, 0, 0, 0, 6, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 6, 0, 0, 0, 6],
+           [6, 0, 0, 0, 6, 0, 0, 0, 6],
+           [6, 0, 0, 0, 6, 0, 0, 0, 6],
+           [6, 0, 0, 0, 6, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 0, 0, 0, 0, 0, 6, 6],
+           [6, 6, 6, 0, 0, 0, 6, 6, 6],
+           [6, 6, 6, 6, 6, 6, 6, 6, 6]],
 
-field2 = [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-          [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
-          [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
-          [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
-          [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
-          [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
-          [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
-          [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]]
+          [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+           [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
+           [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
+           [6, 0, 0, 6, 6, 6, 6, 6, 6, 6],
+           [6, 0, 0, 0, 6, 6, 6, 6, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 6, 0, 0, 0, 0, 0, 6, 6],
+           [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]],
+
+          [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]],
+
+          [[6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+           [6, 6, 6, 0, 0, 0, 0, 6, 6, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 6, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+           [6, 6, 0, 0, 0, 0, 0, 0, 6, 6],
+           [6, 6, 6, 0, 0, 0, 0, 6, 6, 6],
+           [6, 6, 6, 6, 6, 6, 6, 6, 6, 6]]]
 
 white_assets = {0: svg2rlg('Field_bg.svg'),
                 1: svg2rlg('1_white.svg'),
@@ -107,47 +145,44 @@ bg_assets = {0: svg2rlg('Field_bg.svg'),
 
 ################################################################################
 #
-#
+# Actual generation: tiles, then fields
 #
 ################################################################################
 
 tilings = []
 inverted_shapes = []
-
-
-tile_document = canvas.Canvas('tiles.pdf', bottomup=0,
-                              pagesize=A4)
 page_width, page_height = A4
-tile_document.setLineWidth(0.1 * cm)
-table_offset = (page_width / cm - 16) / 2
 
-for shape in shapes:
-    tiling, inverted_tiling = generate_colors(shape)
-    inverted_shape = [row[::-1] for row in shape]
-    draw_block(tile_document, shape, tiling,
-               white_assets,
-               start_x=table_offset,
-               start_y=3,
-               tile_size=2)
-    tile_document.showPage()
+if not args.notiles:
+    tile_document = canvas.Canvas('tiles.pdf', bottomup=0,
+                                  pagesize=A4)
     tile_document.setLineWidth(0.1 * cm)
-    draw_block(tile_document, inverted_shape, inverted_tiling,
-               bg_assets,
-               start_x=table_offset,
-               start_y=3,
-               tile_size=2)
-    tile_document.showPage()
-tile_document.save()
+    table_offset = (page_width / cm - 16) / 2
+    for shape in shapes:
+        tiling, inverted_tiling = generate_colors(shape)
+        inverted_shape = [row[::-1] for row in shape]
+        draw_block(tile_document, shape, tiling,
+                   white_assets,
+                   start_x=table_offset,
+                   start_y=3,
+                   tile_size=2)
+        tile_document.showPage()
+        tile_document.setLineWidth(0.1 * cm)
+        draw_block(tile_document, inverted_shape, inverted_tiling,
+                   bg_assets,
+                   start_x=table_offset,
+                   start_y=3,
+                   tile_size=2)
+        tile_document.showPage()
+    tile_document.save()
 
-field_document = canvas.Canvas('fields.pdf', bottomup=0,
-                               pagesize=A4)
-draw_block(field_document, field, field, white_assets,
-           start_x=(page_width / cm - 2 * len(field[0])) / 2,
-           start_y=(page_height / cm - 2 * len(field)) / 2,
-           tile_size=2)
-field_document.showPage()
-draw_block(field_document, field2, field2, white_assets,
-           start_x=(page_width / cm - 2 * len(field2[0])) / 2,
-           start_y=(page_height / cm - 2 * len(field2)) / 2,
-           tile_size=2)
-field_document.save()
+if not args.nofield:
+    field_document = canvas.Canvas('fields.pdf', bottomup=0,
+                                   pagesize=A4)
+    for field in fields:
+        draw_block(field_document, field, field, white_assets,
+                   start_x=(page_width / cm - 2 * len(field[0])) / 2,
+                   start_y=(page_height / cm - 2 * len(field)) / 2,
+                   tile_size=2)
+        field_document.showPage()
+    field_document.save()
