@@ -14,7 +14,7 @@ def draw_block(canvas: canvas,
                            canvas,
                            start_x * cm + col_index * tile_size * cm,
                            start_y * cm + row_index * tile_size * cm)
-            if col_index < 7 and shape[row_index][col_index] != shape[row_index][col_index+1]:
+            if col_index < len(row) - 1 and shape[row_index][col_index] != shape[row_index][col_index+1]:
                 # Line to the right of current block
                 canvas.line(start_x * cm + (col_index + 1) * tile_size * cm,
                             start_y * cm + row_index * tile_size * cm,
