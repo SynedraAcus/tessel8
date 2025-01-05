@@ -17,7 +17,7 @@ Put the rest of tokens to a bag or just a pile on the table.
 ## Gameplay
 
 If at the beginning of player's turn they have less than five tokens before
-them, they draw one basic token from the pile. After that, they place one of
+them, they randomly draw one basic token from the pile. After that, they place one of
 their tokens on the field; tokens are not allowed to overlap each other or cross
 the field edges, but otherwise a player can place their token wherever they
 want. If this creates a group of at least adjacent identical gems:
