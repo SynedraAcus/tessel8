@@ -1,8 +1,9 @@
 ## Tessel8
 
-Настольный мэтч3.
+A match-3 duel boardgame
 
-В этом репе лежат скрипты и ассеты для генерации картинок. Правила есть в
-`rules/rules.md`, PoC тайлы пдф-кой где-то в assets.
+This repository mostly contains scripts and assets for tile generation.
+Print-n-play fields and tiles are in `assets/fields.pdf` and `assets/tiles.pdf`
+respectively.
 
-Лицензия - [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+The project is licensed under [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
